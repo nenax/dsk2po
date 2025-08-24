@@ -28,7 +28,7 @@ def main(argv=None):
     for track in range(ntracks):
       trackbuffer = dskfile.read(4096)
       potracks.append(dsk2po(trackbuffer))
-  pofilename = re.sub('\.dsk$', '', dskfilename, flags=re.IGNORECASE) + ".po"
+  pofilename = re.sub(r'\.dsk$', '', dskfilename, flags=re.IGNORECASE) + ".po"
   print('Writing po image to {}'.format(pofilename))
   with open(pofilename, mode="wb") as pofile:
     for potrack in potracks:
